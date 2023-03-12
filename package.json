@@ -1,0 +1,22 @@
+{
+  "name": "@8128-33550336/typedeventemitter",
+  "version": "0.0.1",
+  "description": "typedEventEmitter",
+  "main": "src/index.ts",
+  "publishConfig": {
+    "access": "restricted",
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/8128-33550336/typedEventEmitter.git"
+  },
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "author": "8128-33550336",
+  "devDependencies": {
+    "@types/node": "^18.15.0"
+  }
+}
