@@ -16,6 +16,9 @@
     "README.md"
   ],
   "author": "8128-33550336",
+  "dependencies": {
+    "events": "^3.3.0"
+  },
   "devDependencies": {
     "@types/node": "^18.15.0"
   }
