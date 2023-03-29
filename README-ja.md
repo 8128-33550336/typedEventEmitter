@@ -4,6 +4,7 @@
 # typedEventEmitter
 
 </div>
+[![publish](https://github.com/8128-33550336/typedEventEmitter/actions/workflows/publish.yml/badge.svg?branch=main&event=push)](https://github.com/8128-33550336/typedEventEmitter/actions/workflows/publish.yml)
 
 Language: [English](./README.md)
 

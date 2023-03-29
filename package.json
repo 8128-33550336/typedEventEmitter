@@ -1,6 +1,6 @@
 {
   "name": "@8128-33550336/typedeventemitter",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "typedEventEmitter",
   "main": "src/index.ts",
   "publishConfig": {
