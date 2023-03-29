@@ -7,6 +7,8 @@
 
 [![publish](https://github.com/8128-33550336/typedEventEmitter/actions/workflows/publish.yml/badge.svg?branch=main&event=push)](https://github.com/8128-33550336/typedEventEmitter/actions/workflows/publish.yml)
 
+[Package](https://github.com/8128-33550336/typedEventEmitter/pkgs/npm/typedeventemitter)
+
 Language: [Japanese](./README-ja.md)
 
 # About
