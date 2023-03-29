@@ -5,7 +5,7 @@
 
 </div>
 
-Language: [English](./README.md)
+Language: [Japanese](./README-ja.md)
 
 # About
 
