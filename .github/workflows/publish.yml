@@ -18,6 +18,7 @@ jobs:
           node-version: "18"
           registry-url: https://npm.pkg.github.com
           scope: "@8128-33550336"
+      - run: npm ci && npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
