@@ -1,8 +1,9 @@
 {
   "name": "@8128-33550336/typedeventemitter",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "typedEventEmitter",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com/"
@@ -12,14 +13,18 @@
     "url": "https://github.com/8128-33550336/typedEventEmitter.git"
   },
   "files": [
-    "src",
+    "dist",
     "README.md"
   ],
   "author": "8128-33550336",
+  "scripts": {
+    "build": "tsc"
+  },
   "dependencies": {
     "events": "^3.3.0"
   },
   "devDependencies": {
-    "@types/node": "^18.15.0"
+    "@types/node": "^18.15.0",
+    "typescript": "^5.0.2"
   }
 }
