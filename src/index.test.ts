@@ -54,3 +54,6 @@ type small<T, S> = S extends T ? S : T;
 const em = <T extends keyof j>(f: T, ...s: j[noUnionInference<small<typeof f, T>>]) => f;
 em('a' as 'a' | 'b', 'b' as 'a' | 'b');
 //em('a', 'b');
+
+const ee2 = new TypedEventEmitter<{ [P in 'a' | 'b']: [name: P] } & { keydown: [name: string]; }>();
+//ee2.emit('a', 'c');
