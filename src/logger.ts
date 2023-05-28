@@ -5,8 +5,7 @@ export function eventEmitterLogger<T extends eventTypedEmitter<EventType>>(ee: T
 
     ee.emit = (type, ...arg) => {
         logger(`event emitter emitted. type: `, JSON.stringify(type), `, data: `, ...arg);
-        defaultEmit(type, ...arg);
-        return ee;
+        return defaultEmit(type, ...arg);;
     };
     return ee;
 }
