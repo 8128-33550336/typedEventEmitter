@@ -2,8 +2,8 @@
   "name": "@8128-33550336/typedeventemitter",
   "version": "0.0.8",
   "description": "typedEventEmitter",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
   "publishConfig": {
     "access": "public",
     "registry": "https://npm.pkg.github.com/"
@@ -18,7 +18,8 @@
   ],
   "author": "8128-33550336",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && cp src/*.d.ts dist/",
+    "test": "node --test index.test.ts"
   },
   "dependencies": {
     "events": "^3.3.0"
