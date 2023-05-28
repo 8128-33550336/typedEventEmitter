@@ -18,6 +18,7 @@ test('basic', (t, done) => {
     }> = ee;
 
     a.emit('a', 'b');
+    a.emit('a' as 'a' | 'c', 'b' as 'b' | 'd');
     //a.emit('a', 'd');
 });
 
@@ -37,3 +38,19 @@ test('EventType test', (t) => {
     ]);
     const et: EventType[] = types;
 });
+
+const k = ['a', 'b', 'c'] as const;
+type j = { [P in typeof k extends readonly (infer T)[] ? T : never]: [name: P] } & { keydown: [name: string]; };
+
+type noUnionInference<T> = T extends T ? T : never;
+
+const ee = new TypedEventEmitter<j>();
+const a: keyof j = 'b' as keyof j;
+ee.emit(a, a);
+//ee.emit('a', 'b');
+
+type small<T, S> = S extends T ? S : T;
+
+const em = <T extends keyof j>(f: T, ...s: j[noUnionInference<small<typeof f, T>>]) => f;
+em('a' as 'a' | 'b', 'b' as 'a' | 'b');
+//em('a', 'b');
