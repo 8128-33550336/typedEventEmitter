@@ -1,5 +1,5 @@
 import { test } from 'node:test';
-import { TypedEventEmitter, EventType, eventTypedEmitter, eventTypedAddListener, eventEmitterLogger } from '../dist/index.d';
+import { TypedEventEmitter, EventType, eventTypedEmitter, eventTypedAddListener, eventEmitterLogger } from './index';
 import assert from 'node:assert';
 
 test('basic', (t, done) => {
@@ -9,6 +9,7 @@ test('basic', (t, done) => {
     }>();
     ee.on('a', (name) => {
         assert.strictEqual(name, 'b');
+        done();
     });
 
     const a: eventTypedEmitter<{

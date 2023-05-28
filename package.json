@@ -13,13 +13,15 @@
     "url": "https://github.com/8128-33550336/typedEventEmitter.git"
   },
   "files": [
-    "dist",
+    "dist/**/*",
+    "!**/*.test.*",
     "README.md"
   ],
   "author": "8128-33550336",
   "scripts": {
-    "build": "tsc && cp src/*.d.ts dist/",
-    "test": "node --test index.test.ts"
+    "prebuild": "rm -f dist/*",
+    "build": "tsc && cp -f src/*.d.ts dist/",
+    "test": "node --test dist/index.test.js"
   },
   "dependencies": {
     "events": "^3.3.0"
