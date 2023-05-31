@@ -57,3 +57,71 @@ em('a' as 'a' | 'b', 'b' as 'a' | 'b');
 
 const ee2 = new TypedEventEmitter<{ [P in 'a' | 'b']: [name: P] } & { keydown: [name: string]; }>();
 //ee2.emit('a', 'c');
+
+
+
+
+
+
+
+
+
+
+type type1 = { [P in 'hoge']: [P] };
+type sequenceType2 = { hoge: ['hoge']; };
+
+
+const ee3 = new TypedEventEmitter<type1>();
+
+ee3.on('hoge', () => {
+
+});
+
+ee3.on<'hoge'>('hoge', () => {
+
+});
+
+ee3.on('hoge', (a) => {
+
+});
+const ee4 = new TypedEventEmitter<sequenceType2>();
+ee4.on('hoge', () => {
+
+});
+
+ee4.on<'hoge'>('hoge', () => {
+
+});
+
+ee4.on('hoge', (a) => {
+
+});
+
+function like1<T extends keyof type1>(event: T, listener: (...args: type1[T]) => void) {
+
+};
+
+//like1('hoge', () => { });
+function like2<T extends 'hoge'>(event: T, listener: (...args: type1[T]) => void) {
+
+};
+
+//like2('hoge', () => { });
+like2('hoge', (a) => { });
+function like5<T extends 'hoge'>(event: T, listener: ((...args: type1[T] | []) => void)) {
+    listener('hoge');
+};
+
+like5('hoge', () => { });
+//like5('hoge', (a) => { });
+function like4<T extends 'hoge'>(event: T, listener: ((...args: type1[T]) => void) | (() => void)) {
+    listener('hoge');
+};
+
+like4('hoge', () => { });
+like4('hoge', (a) => { });
+function like3<T extends 'hoge'>(event: T, listener: (args: type1[T]) => void) {
+
+};
+
+like3('hoge', () => { });
