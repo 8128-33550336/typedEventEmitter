@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import { TypedEventEmitter, EventType, eventTypedEmitter, eventTypedAddListener, eventEmitterLogger } from './index';
 import assert from 'node:assert';
+import { EventEmitter } from 'node:stream';
 
 test('basic', (t, done) => {
     const ee = new TypedEventEmitter<{
@@ -125,3 +126,54 @@ function like3<T extends 'hoge'>(event: T, listener: (args: type1[T]) => void) {
 };
 
 like3('hoge', () => { });
+
+{
+    class MyClass extends TypedEventEmitter<{
+        hoge: [value: string];
+        fuga: [];
+        piyo: [value: number];
+    }> {
+        constructor() {
+            super();
+            this.on('piyo', num => {
+                this.emit('hoge', num + '');
+                this.emit('fuga');
+            });
+        }
+    }
+
+    const myClass = new MyClass();
+
+    myClass.on('hoge', value => {
+        console.log('hoge', value);
+    });
+
+    myClass.on('fuga', () => {
+        console.log('fuga');
+    });
+
+    myClass.emit('piyo', 42);
+}
+EventEmitter
+{
+    const myEventEmitter = new TypedEventEmitter<{
+        hoge: [string];
+        fuga: [];
+        piyo: [number];
+    }>();
+
+    myEventEmitter.on('piyo', num => {
+        myEventEmitter.emit('hoge', num + '');
+        myEventEmitter.emit('fuga');
+    });
+
+    myEventEmitter.on('hoge', value => {
+        console.log('hoge', value);
+    });
+
+    myEventEmitter.on('fuga', () => {
+        console.log('fuga');
+    });
+
+    myEventEmitter.emit('piyo', 42);
+}
