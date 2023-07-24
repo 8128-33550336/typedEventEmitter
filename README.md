@@ -13,7 +13,7 @@ Language: [Japanese](./README-ja.md)
 
 # About
 
-This is [`EventEmiter`](https://nodejs.org/dist/latest-v18.x/docs/api/events.html#class-eventemitter) typed with TypeScript
+This is [`EventEmitter`](https://nodejs.org/dist/latest-v18.x/docs/api/events.html#class-eventemitter) typed with TypeScript
 
 # Install
 ~/.npmrc
@@ -63,7 +63,11 @@ myClass.emit('baz', 42);
 ## Simple usage
 
 ```ts
-const myEventEmitter = new TypedEventEmitter();
+const myEventEmitter = new TypedEventEmitter<{
+  hoge: [string];
+  fuga: [];
+  piyo: [number];
+}>();
 
 myEventEmitter.on('baz', num => {
     myEventEmitter.emit('foo', num + '');
